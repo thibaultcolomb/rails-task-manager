@@ -1,6 +1,27 @@
-<h1><%= @task.title %></h1>
-<p><%= @task.details  %></p>
-<p><%= @task.completed  %></p>
-<p><%= link_to "Back to list", tasks_path%></p>
+<div class="m-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1><%= @task.title %></h1>
+    <%= link_to  edit_task_path, class: "btn btn-primary d-flex align-items-center" do%>
+      <i class="fa-solid fa-pencil"></i>
+      <p class="mb-0 ms-3">Edit this task</p>
+    <% end %>
 
-<p><%= link_to "Edit", edit_task_path%></p>
+  </div>
+
+  <p class="border p-3 rounded bg-secondary bg-opacity-10"><%= @task.details  %></p>
+  <div class="d-flex align-items-center mb-3">
+    <% if @task.completed == true%>
+      <i class="fa-regular fa-square-check"></i>
+      <p class="ms-3 mb-0">This task is completed.</p>
+    <% else %>
+      <i class="fa-regular fa-square"></i>
+      <p class="ms-3 mb-0">This task is not yet completed.</p>
+    <% end %>
+
+
+  </div>
+
+
+  <p class="border-top py-3"><%= link_to "Back to list", tasks_path%></p>
+
+</div>

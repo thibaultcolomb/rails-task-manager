@@ -1,7 +1,18 @@
 <%= form_with model: task do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :details %>
-<%= f.text_field :details %>
-<%= f.submit%>
+  <div class="mb-3">
+    <%= f.label :title, class: "form-label" %>
+    <%= f.text_field :title , class: "form-control"%>
+  </div>
+  <div class="mb-3">
+    <%= f.label :details, class: "form-label"%>
+    <%= f.text_field :details, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.check_box :completed, id: "checkbox" %>
+    <%= f.label :completed, for: "checkbox" %>
+  </div>
+  <div >
+    <%= f.submit "Update task", class: "btn btn-primary"%>
+  </div>
+
 <% end %>
